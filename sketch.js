@@ -19,7 +19,6 @@ function setup() {
   var output = select('#output');
   var user_input = select("#user_input");
   var button = select("#start");
-  button.mousePressed(botStart);
 
   function gotSpeech(){
     if(speechRec.resultValue){
