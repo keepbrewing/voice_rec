@@ -1,7 +1,8 @@
 function setup() {
   noCanvas();
-
-  var foo = new p5.Speech();
+  
+  var speechRec = new p5.SpeechRec("en-US", gotSpeech);
+  speechRec.start(true, false);
 
   var bot = new RiveScript();
   bot.loadFile("brain.rive").then(brainReady).catch(brainError);
@@ -14,17 +15,19 @@ function setup() {
   function brainError(){
   	console.log("error");
   }
-
-  var button = select('#submit');
-  var user_input = select('#user_input');
+  
   var output = select('#output');
+  var user_input = select("#user_input");
+  var button = select("#start");
+  button.mousePressed(botStart);
 
-  button.mousePressed(chat);
-
-  function chat() {
-    var input = user_input.value();
-    bot.reply("local-user", input).then(function(reply) {
-    	foo.speak(reply);
-	});
+  function gotSpeech(){
+    if(speechRec.resultValue){
+      input = speechRec.resultString;
+      user_input.html(input);
+      bot.reply("local-user", input).then(function(reply) {
+    	  output.html(reply);
+	    });
+    }
   }
 }
