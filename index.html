@@ -6,7 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>chatbot1</title>
+	<title>Chatbot</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -20,19 +24,31 @@
 </head>
 
 <body>
-
-	<h1>Chatbot</h1>
-
-	<p>
-		say: <input id="user_input" />
-		<button id="submit">submit</button>
-	</p>
-
-	<p>
-		reply: <span id="output"></span>
-	</p>
-
-
+  <div class="container-fluid m-4">
+  <div class="row">
+    <div class="col-sm-6 text-lg-right p-5">
+      <center>
+        <img src="bot.png" alt="Card image" width="60%">
+      </center>
+    </div>
+    <div class="col-sm-6 d-flex">
+      <div class="card text-center m-2" style="width: 20rem; border-radius:10px; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; border:none;">
+    <h3 class="m-4 text-muted">CHATBOT</h3>
+  <div class="card-body">
+    <i class="fa fa-microphone fa-5x text-muted" aria-hidden="true"></i>
+    <p class="m-4 card-text">
+		    Please speak. The chatbot is listening.
+	    </p>
+    <p class="m-4 border-right bg-primary p-2 float-left" id="user_input" style="color:white; border-radius:10px">
+    </p>
+    <br><br>
+	    <p class="m-4 border-left float-right bg-success p-2" style="color:white; border-radius:10px">
+		    <span id="output"></span>
+	    </p>
+  </div>
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
